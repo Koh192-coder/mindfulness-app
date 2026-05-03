@@ -1,0 +1,66 @@
+.main {
+  padding: 20px 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.divider {
+  height: 0.5px;
+  background: #333;
+  margin: 16px 0;
+}
+
+.sectionTitle {
+  color: var(--text-muted);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.empty {
+  color: var(--text-hint);
+  font-size: 13px;
+  padding: 24px 0;
+}
+
+.searchModeBar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.homeBtnOutline {
+  background: transparent;
+  border: 0.5px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: 8px 16px;
+  color: var(--text-muted);
+  font-size: 13px;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.homeBtnOutline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.newPostBtn {
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 8px 16px;
+  color: var(--accent-dark);
+  font-size: 13px;
+  font-weight: 500;
+  transition: opacity 0.15s;
+}
+
+.newPostBtn:hover {
+  opacity: 0.85;
+}

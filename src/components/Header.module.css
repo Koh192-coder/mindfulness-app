@@ -1,0 +1,39 @@
+.header {
+  background: var(--bg-base);
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 0.5px solid var(--border-subtle);
+}
+
+.logoWrap {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.titleWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  color: var(--text-heading);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+}
+
+.sub {
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  margin-top: 3px;
+}
