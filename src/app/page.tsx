@@ -54,7 +54,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <SearchBar onSearch={(kw: string, tag: string) => handleSearch(kw, tag)} />
+      <SearchBar onSearch={handleSearch} />
       <main className={styles.main}>
         <PostForm onPosted={fetchPosts} />
         <div className={styles.divider} />
