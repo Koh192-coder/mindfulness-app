@@ -33,6 +33,11 @@ export default function Home() {
     fetchPosts()
   }, [])
 
+  const handleDelete = (id: string) => {
+    // TODO: Supabase delete
+    setPosts((prev) => prev.filter((p) => p.id !== id))
+  }
+
   const handleSearch = (kw: string, tag: string) => {
     setKeyword(kw)
     setActiveTag(tag)
@@ -68,7 +73,12 @@ export default function Home() {
         ) : (
           <div className={styles.cards}>
             {filtered.map((post) => (
-              <PostCard key={post.id} post={post} onClick={setSelectedPost} />
+              <PostCard
+                key={post.id}
+                post={post}
+                onClick={setSelectedPost}
+                onDelete={handleDelete}
+              />
             ))}
           </div>
         )}
