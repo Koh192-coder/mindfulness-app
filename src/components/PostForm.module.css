@@ -41,6 +41,8 @@
   color: var(--text-primary);
   font-size: 12px;
   outline: none;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .input:focus {
