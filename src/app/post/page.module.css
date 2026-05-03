@@ -1,0 +1,29 @@
+.main {
+  padding: 20px 32px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.backRow {
+  margin-bottom: 16px;
+}
+
+.backBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 13px;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.backBtn:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .main {
+    padding: 16px;
+  }
+}

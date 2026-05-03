@@ -1,16 +1,17 @@
 'use client'
 
 import { useState, useMemo, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { Post } from '@/types'
 import { supabase } from '@/lib/supabase'
 import Header from '@/components/Header'
 import SearchBar from '@/components/SearchBar'
 import PostCard from '@/components/PostCard'
 import PostModal from '@/components/PostModal'
-import PostForm from '@/components/PostForm'
 import styles from './page.module.css'
 
 export default function Home() {
+  const router = useRouter()
   const [posts, setPosts] = useState<Post[]>([])
   const [loading, setLoading] = useState(true)
   const [keyword, setKeyword] = useState('')
@@ -33,8 +34,12 @@ export default function Home() {
     fetchPosts()
   }, [])
 
-  const handleDelete = (id: string) => {
-    // TODO: Supabase delete
+  const handleDelete = async (id: string) => {
+    const { error } = await supabase.from('posts').delete().eq('id', id)
+    if (error) {
+      alert('削除に失敗しました: ' + error.message)
+      return
+    }
     setPosts((prev) => prev.filter((p) => p.id !== id))
   }
 
@@ -61,8 +66,6 @@ export default function Home() {
       <Header />
       <SearchBar onSearch={handleSearch} />
       <main className={styles.main}>
-        <PostForm onPosted={fetchPosts} />
-        <div className={styles.divider} />
         <div className={styles.sectionTitle}>
           みんなの投稿 · {filtered.length}件
         </div>
@@ -84,6 +87,10 @@ export default function Home() {
         )}
       </main>
       <PostModal post={selectedPost} onClose={() => setSelectedPost(null)} />
+      <button className={styles.fab} onClick={() => router.push('/post')} aria-label="行動を投稿する">
+        <span className={styles.fabIcon}>＋</span>
+        <span className={styles.fabLabel}>投稿する</span>
+      </button>
     </>
   )
 }

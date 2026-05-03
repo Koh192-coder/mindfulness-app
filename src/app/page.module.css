@@ -64,3 +64,49 @@
 .newPostBtn:hover {
   opacity: 0.85;
 }
+
+.fab {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent);
+  border: none;
+  border-radius: 999px;
+  padding: 12px 20px;
+  color: var(--accent-dark);
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.15s;
+  z-index: 100;
+}
+
+.fab:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
+
+.fab:active {
+  transform: translateY(0);
+}
+
+.fabIcon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.fabLabel {
+  font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  .fab {
+    bottom: 20px;
+    right: 16px;
+    padding: 12px 16px;
+  }
+}
