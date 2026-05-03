@@ -96,6 +96,38 @@
   font-weight: 500;
 }
 
-.submit:hover {
+.submit:hover:not(:disabled) {
   opacity: 0.85;
+}
+
+.submit:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.agreeRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  cursor: pointer;
+}
+
+.checkbox {
+  width: 14px;
+  height: 14px;
+  accent-color: var(--accent);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.agreeLabel {
+  font-size: 12px;
+  color: var(--text-hint);
+  line-height: 1.5;
+}
+
+.termsLink {
+  color: var(--accent);
+  text-decoration: underline;
 }

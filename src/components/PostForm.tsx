@@ -17,6 +17,7 @@ export default function PostForm({ onPosted }: Props) {
   const [source, setSource] = useState('')
   const [sourceUrl, setSourceUrl] = useState('')
   const [submitting, setSubmitting] = useState(false)
+  const [agreed, setAgreed] = useState(false)
 
   const handleSubmit = async () => {
     if (!name || !duration || !body || !effect) {
@@ -82,8 +83,19 @@ export default function PostForm({ onPosted }: Props) {
         <label className={styles.label}>出典URL（任意）</label>
         <input className={styles.input} placeholder="https://..." value={sourceUrl} onChange={(e) => setSourceUrl(e.target.value)} />
       </div>
+      <label className={styles.agreeRow}>
+        <input
+          type="checkbox"
+          className={styles.checkbox}
+          checked={agreed}
+          onChange={(e) => setAgreed(e.target.checked)}
+        />
+        <span className={styles.agreeLabel}>
+          <a href="/terms" target="_blank" rel="noopener noreferrer" className={styles.termsLink}>利用規約</a>に同意して投稿する
+        </span>
+      </label>
       <div className={styles.footer}>
-        <button className={styles.submit} onClick={handleSubmit} disabled={submitting}>
+        <button className={styles.submit} onClick={handleSubmit} disabled={submitting || !agreed}>
           {submitting ? '投稿中...' : '投稿する'}
         </button>
       </div>
